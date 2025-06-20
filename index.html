@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yeonji's Business Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="card-scene">
+    <div class="card" onclick="flipCard()">
+      <!-- FRONT -->
+      <div class="card-face card-front">
+        <div class="gloss"></div>
+        <div class="card-content front-content">
+          <div class="left-block">
+            <div class="top-left">
+              <h1 class="title">YEONJI BAEK</h1>
+              <p class="subline">CARNEGIE MELLON UNIVERSITY</p>
+              <p class="subline">Statistics & ML</p>
+              <p class="subline">Rising Senior</p>
+            </div>
+            <div class="bottom-left">
+              <a href="https://www.linkedin.com/in/yeonji-baek/" target="_blank" class="contact-link">LinkedIn</a>
+              <a href="resume.pdf" target="_blank" class="contact-link">Resume</a>
+              <p class="contact-email">baekb100b@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="right-block">
+            <!-- <img src="7B1A3350.jpeg" alt="Profile" class="profile-img"/> -->
+
+            <div class="hover-sections">
+              <div class="hover-item">
+                <span>About</span>
+                <div class="hover-content">
+                  <p>Aspiring data analyst passionate about storytelling with numbers.</p>
+                  <p>Happy to chat more!</p>
+                </div>
+              </div>
+              <div class="hover-item">
+                <span>Skills</span>
+                <div class="hover-content">Python, SQL, R, HTML, CSS, Data Viz</div>
+              </div>
+              <div class="hover-item">
+                <span>Experience</span>
+                <div class="hover-content">
+                  <p>Data Analyst Intern @ The New York Times & The Horizon Advisory</p>
+                  <p>Teaching Assistant @ Data Science for PMs</p>
+                  <p>Head Orientation Counselor @ CMU</p>
+                </div>
+              </div>
+              <div class="hover-item">
+                <span>Interests</span>
+                <div class="hover-content">Sports Photography, Language Learning, Sudoku</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-face card-back">
+        <div class="gloss"></div>
+        <div class="card-content back-content">
+          <h1 class="back-title">YEONJI BAEK</h1>
+          <p class="back-role">Hope you enjoyed my business card!</p>
+          <p class="back-email">baekb100b@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
