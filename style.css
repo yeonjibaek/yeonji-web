@@ -1,0 +1,270 @@
+/* RESET & THEME */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #deeeff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'League Spartan', sans-serif;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SCENE & CARD */
+.card-scene {
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+  perspective: 1000px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
+  cursor: pointer;
+  aspect-ratio: 16 / 9;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  backface-visibility: hidden;
+  overflow: hidden;
+  padding: 40px;
+  display: flex;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+}
+
+.card-front {
+  background-color: white;
+  color: #0b2e6f;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.card-back {
+  background-color: #ffb6c1;
+  color: #0b2e6f;
+  transform: rotateY(180deg);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* GLOSS */
+.gloss {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+  transform: rotate(25deg);
+  animation: shine 3s infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
+/* FRONT STRUCTURE */
+.front-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  z-index: 2;
+}
+
+.left-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top-left h1.title {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.subline {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 225px;
+}
+
+.contact-link {
+  font-size: 1rem;
+  color: #0b2e6f;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.contact-link:hover {
+  color: #0072ce;
+}
+
+.contact-email {
+  font-size: 1rem;
+}
+
+.right-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.hover-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: auto;
+}
+
+.hover-item {
+  position: relative;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  width: 150px;
+  text-align: right;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.hover-item span {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hover-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  font-size: 0.9rem;
+  font-weight: normal;
+  white-space: normal;
+  text-align: right;
+  opacity: 0;
+}
+
+.hover-item:hover span {
+  transform: translateY(-100%);
+}
+
+.hover-item:hover .hover-content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.hover-item.about .hover-content::before {
+  content: '';
+  display: block;
+  background: url('profile.jpg') no-repeat center center / cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.back-title {
+  font-size: 7rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  letter-spacing: -2px;
+}
+
+.back-role {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.back-email {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .card {
+    aspect-ratio: auto;
+    height: 90vh;
+  }
+  .card-face {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .front-content {
+    flex-direction: column;
+  }
+  .left-block, .right-block {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .top-left h1.title {
+    font-size: 3rem;
+  }
+  .hover-item {
+    width: 100%;
+    text-align: left;
+  }
+  .hover-content {
+    text-align: left;
+  }
+  .back-title {
+    font-size: 4rem;
+  }
+}
